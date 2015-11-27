@@ -1,0 +1,27 @@
+{
+    "name": "php-http/promise",
+    "description": "Promise used for asynchronous HTTP requests",
+    "license": "MIT",
+    "keywords": ["promise"],
+    "homepage": "http://httplug.io",
+    "authors": [
+        {
+            "name": "Joel Wurtz",
+            "email": "joel.wurtz@gmail.com"
+        },
+        {
+            "name": "Márk Sági-Kazár",
+            "email": "mark.sagikazar@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Http\\Promise\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
