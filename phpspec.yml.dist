@@ -1,0 +1,5 @@
+suites:
+    tools_suite:
+        namespace: Http\Promise
+        psr4_prefix: Http\Promise
+formatter.name: pretty

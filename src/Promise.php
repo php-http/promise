@@ -62,7 +62,7 @@ interface Promise
      *
      * @return ResponseInterface|null Resolved value, null if $unwrap is set to false
      *
-     * @throws \Http\Client\Exception The rejection reason.
+     * @throws \Exception The rejection reason.
      */
     public function wait($unwrap = true);
 }
