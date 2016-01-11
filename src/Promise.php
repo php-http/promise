@@ -9,6 +9,7 @@ use Psr\Http\Message\ResponseInterface;
  * It acts like a proxy to the actual value.
  *
  * This interface is an extension of the promises/a+ specification.
+ *
  * @see https://promisesaplus.com/
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
