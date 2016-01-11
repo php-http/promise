@@ -56,7 +56,7 @@ interface Promise
      *
      * When this method returns, the request has been resolved and the appropriate callable has terminated.
      *
-     * When called with the unwrap option
+     * When called with the unwrap option, the value is resolved, but not returned.
      *
      * @param bool $unwrap Whether to return resolved value / throw reason or not
      *
