@@ -64,4 +64,9 @@ class FulfilledPromiseSpec extends ObjectBehavior
     {
         $this->wait()->shouldReturn($response);
     }
+
+    function it_does_not_unwrap_a_value(ResponseInterface $response)
+    {
+        $this->wait(false)->shouldNotReturn($response);
+    }
 }

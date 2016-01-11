@@ -70,4 +70,9 @@ class RejectedPromiseSpec extends ObjectBehavior
         $this->beConstructedWith($exception);
         $this->shouldThrow($exception)->duringWait();
     }
+
+    function it_does_not_unwrap_a_value(ResponseInterface $response)
+    {
+        $this->shouldNotThrow('Exception')->duringWait(false);
+    }
 }
