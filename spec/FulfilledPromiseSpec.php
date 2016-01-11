@@ -55,6 +55,11 @@ class FulfilledPromiseSpec extends ObjectBehavior
         $promise->shouldThrow($exception)->duringWait();
     }
 
+    function it_returns_itself_when_no_on_fulfilled_callback_is_passed()
+    {
+        $this->then()->shouldReturn($this);
+    }
+
     function it_is_in_fulfilled_state()
     {
         $this->getState()->shouldReturn(Promise::FULFILLED);

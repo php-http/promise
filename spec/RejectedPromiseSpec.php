@@ -58,6 +58,11 @@ class RejectedPromiseSpec extends ObjectBehavior
         $promise->shouldThrow($exception)->duringWait();
     }
 
+    function it_returns_itself_when_no_on_rejected_callback_is_passed()
+    {
+        $this->then()->shouldReturn($this);
+    }
+
     function it_is_in_rejected_state()
     {
         $this->getState()->shouldReturn(Promise::REJECTED);
