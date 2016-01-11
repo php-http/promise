@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * A promise already fulfilled.
  *
- * @author Joel Wurtz <jwurtz@jolicode.com>
+ * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
 final class FulfilledPromise implements Promise
 {

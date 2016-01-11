@@ -5,7 +5,7 @@ namespace Http\Promise;
 /**
  * A rejected promise.
  *
- * @author Joel Wurtz <jwurtz@jolicode.com>
+ * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
 final class RejectedPromise implements Promise
 {
