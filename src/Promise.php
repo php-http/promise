@@ -39,7 +39,7 @@ interface Promise
      * The callback will be called when the value arrived and never more than once.
      *
      * @param callable $onFulfilled Called when a response will be available.
-     * @param callable $onRejected  Called when an error happens.
+     * @param callable $onRejected  Called when an exception occurs.
      *
      * @return Promise A new resolved promise with value of the executed callback (onFulfilled / onRejected).
      */
@@ -55,15 +55,17 @@ interface Promise
     /**
      * Wait for the promise to be fulfilled or rejected.
      *
-     * When this method returns, the request has been resolved and the appropriate callable has terminated.
+     * When this method returns, the request has been resolved and if callables have been
+     * specified, the appropriate one has terminated.
      *
-     * When called with the unwrap option, the value is resolved, but not returned.
+     * When $unwrap is true (the default), the response is returned, or the exception thrown
+     * on failure. Otherwise, nothing is returned or thrown.
      *
      * @param bool $unwrap Whether to return resolved value / throw reason or not
      *
      * @return ResponseInterface|null Resolved value, null if $unwrap is set to false
      *
-     * @throws \Exception The rejection reason.
+     * @throws \Exception The rejection reason if $unwrap is set to true and the request failed.
      */
     public function wait($unwrap = true);
 }
