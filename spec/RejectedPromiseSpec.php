@@ -3,7 +3,6 @@
 namespace spec\Http\Promise;
 
 use Http\Promise\Promise;
-use Psr\Http\Message\ResponseInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -24,21 +23,19 @@ class RejectedPromiseSpec extends ObjectBehavior
         $this->shouldImplement('Http\Promise\Promise');
     }
 
-    function it_returns_a_fulfilled_promise(ResponseInterface $response)
+    function it_returns_a_fulfilled_promise()
     {
         $exception = new \Exception();
         $this->beConstructedWith($exception);
 
-        $promise = $this->then(null, function (\Exception $exceptionReceived) use($exception, $response) {
-            if (Argument::is($exceptionReceived)->scoreArgument($exception)) {
-                return $response->getWrappedObject();
-            }
+        $promise = $this->then(null, function (\Exception $exceptionReceived) use($exception) {
+            return 'result';
         });
 
         $promise->shouldHaveType('Http\Promise\Promise');
         $promise->shouldHaveType('Http\Promise\FulfilledPromise');
         $promise->getState()->shouldReturn(Promise::FULFILLED);
-        $promise->wait()->shouldReturn($response);
+        $promise->wait()->shouldReturn('result');
     }
 
     function it_returns_a_rejected_promise()
@@ -76,7 +73,7 @@ class RejectedPromiseSpec extends ObjectBehavior
         $this->shouldThrow($exception)->duringWait();
     }
 
-    function it_does_not_unwrap_a_value(ResponseInterface $response)
+    function it_does_not_unwrap_a_value()
     {
         $this->shouldNotThrow('Exception')->duringWait(false);
     }
