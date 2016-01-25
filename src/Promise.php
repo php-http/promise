@@ -2,8 +2,6 @@
 
 namespace Http\Promise;
 
-use Psr\Http\Message\ResponseInterface;
-
 /**
  * Promise represents a value that may not be available yet, but will be resolved at some point in future.
  * It acts like a proxy to the actual value.
@@ -63,7 +61,7 @@ interface Promise
      *
      * @param bool $unwrap Whether to return resolved value / throw reason or not
      *
-     * @return ResponseInterface|null Resolved value, null if $unwrap is set to false
+     * @return mixed Resolved value, null if $unwrap is set to false
      *
      * @throws \Exception The rejection reason if $unwrap is set to true and the request failed.
      */

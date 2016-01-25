@@ -2,8 +2,6 @@
 
 namespace Http\Promise;
 
-use Psr\Http\Message\ResponseInterface;
-
 /**
  * A promise already fulfilled.
  *
@@ -12,16 +10,16 @@ use Psr\Http\Message\ResponseInterface;
 final class FulfilledPromise implements Promise
 {
     /**
-     * @var ResponseInterface
+     * @var mixed
      */
-    private $response;
+    private $result;
 
     /**
-     * @param ResponseInterface $response
+     * @param $result
      */
-    public function __construct(ResponseInterface $response)
+    public function __construct($result)
     {
-        $this->response = $response;
+        $this->result = $result;
     }
 
     /**
@@ -34,7 +32,7 @@ final class FulfilledPromise implements Promise
         }
 
         try {
-            return new self($onFulfilled($this->response));
+            return new self($onFulfilled($this->result));
         } catch (\Exception $e) {
             return new RejectedPromise($e);
         }
@@ -54,7 +52,7 @@ final class FulfilledPromise implements Promise
     public function wait($unwrap = true)
     {
         if ($unwrap) {
-            return $this->response;
+            return $this->result;
         }
     }
 }
