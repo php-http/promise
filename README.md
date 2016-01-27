@@ -23,7 +23,7 @@ $ composer require php-http/promise
 
 ## Documentation
 
-Please see the [official documentation](http://docs.php-http.org).
+Please see the [official documentation](http://docs.php-http.org/en/latest/components/promise.html).
 
 
 ## Testing
