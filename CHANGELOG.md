@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.1.0 - 2019-11-18
+
+### Added
+
+- Test with PHP 7.1, 7.2, 7.3
+
+### Removed
+
+- PHP 5 support
 
 ## 1.0.0 - 2016-01-26
 
