@@ -36,8 +36,8 @@ interface Promise
      * If you do not care about one of the cases, you can set the corresponding callable to null
      * The callback will be called when the value arrived and never more than once.
      *
-     * @param callable $onFulfilled called when a response will be available
-     * @param callable $onRejected  called when an exception occurs
+     * @param callable|null $onFulfilled called when a response will be available
+     * @param callable|null $onRejected  called when an exception occurs
      *
      * @return Promise a new resolved promise with value of the executed callback (onFulfilled / onRejected)
      */
