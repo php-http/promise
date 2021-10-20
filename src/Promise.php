@@ -66,16 +66,4 @@ interface Promise
      * @throws \Exception the rejection reason if $unwrap is set to true and the request failed
      */
     public function wait($unwrap = true);
-
-    /**
-     * Cancel the promise to be fulfilled or rejected.
-     *
-     * When this method returns, Attempts to cancel the promise if possible. 
-     * The promise being cancelled and the parent most ancestor that has not yet been resolved 
-     * will also be cancelled. Any promises waiting on the cancelled promise to resolve will 
-     * also be cancelled. 
-     * 
-     * @throws \Exception the rejection reason if $unwrap is set to true and the request failed
-     */
-    public function cancel();    
 }
