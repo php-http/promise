@@ -14,9 +14,6 @@ final class FulfilledPromise implements Promise
      */
     private $result;
 
-    /**
-     * @param $result
-     */
     public function __construct($result)
     {
         $this->result = $result;
