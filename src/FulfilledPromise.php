@@ -8,6 +8,7 @@ namespace Http\Promise;
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  *
  * @template-covariant T
+ *
  * @implements Promise<T>
  */
 final class FulfilledPromise implements Promise

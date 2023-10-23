@@ -38,10 +38,11 @@ interface Promise
      * If you do not care about one of the cases, you can set the corresponding callable to null
      * The callback will be called when the value arrived and never more than once.
      *
-     * @param callable(T): V|null $onFulfilled called when a response will be available
+     * @param callable(T): V|null          $onFulfilled called when a response will be available
      * @param callable(\Exception): V|null $onRejected  called when an exception occurs
      *
      * @return Promise<V> a new resolved promise with value of the executed callback (onFulfilled / onRejected)
+     *
      * @template V
      */
     public function then(callable $onFulfilled = null, callable $onRejected = null);
