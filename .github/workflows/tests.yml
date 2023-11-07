@@ -60,3 +60,18 @@ jobs:
         run: |
           wget https://scrutinizer-ci.com/ocular.phar
           php ocular.phar code-coverage:upload --format=php-clover build/coverage.xml
+
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: PHPStan
+        uses: OskarStark/phpstan-ga@0.12.32
+        env:
+          REQUIRE_DEV: false
+        with:
+          args: analyze --no-progress
