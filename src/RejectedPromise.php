@@ -55,5 +55,7 @@ final class RejectedPromise implements Promise
         if ($unwrap) {
             throw $this->exception;
         }
+
+        return;
     }
 }

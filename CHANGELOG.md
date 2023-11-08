@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.1
+
+### Added
+
+- Fixed PHPDoc for `wait()` and `then()`'s `onRejected` callable
+
 ## 1.2.0 - 2023-10-24
 
 ### Added
