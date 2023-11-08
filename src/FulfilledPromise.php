@@ -58,6 +58,7 @@ final class FulfilledPromise implements Promise
         if ($unwrap) {
             return $this->result;
         }
+
         return;
     }
 }
