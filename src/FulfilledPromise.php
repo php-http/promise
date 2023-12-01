@@ -37,8 +37,8 @@ final class FulfilledPromise implements Promise
 
         try {
             return new self($onFulfilled($this->result));
-        } catch (\Exception $e) {
-            return new RejectedPromise($e);
+        } catch (\Throwable $exception) {
+            return new RejectedPromise($exception);
         }
     }
 

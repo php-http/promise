@@ -14,11 +14,11 @@ namespace Http\Promise;
 final class RejectedPromise implements Promise
 {
     /**
-     * @var \Exception
+     * @var \Throwable
      */
     private $exception;
 
-    public function __construct(\Exception $exception)
+    public function __construct(\Throwable $exception)
     {
         $this->exception = $exception;
     }
@@ -34,8 +34,8 @@ final class RejectedPromise implements Promise
 
         try {
             return new FulfilledPromise($onRejected($this->exception));
-        } catch (\Exception $e) {
-            return new self($e);
+        } catch (\Throwable $exception) {
+            return new self($exception);
         }
     }
 

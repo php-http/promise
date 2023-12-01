@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.2
+
+### Fixed
+
+- Fix accepting `Throwable` as rejection reason of a promise
+
 ## 1.2.1
 
 ### Added - 2023-11-08
