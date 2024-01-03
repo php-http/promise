@@ -9,23 +9,20 @@ namespace Http\Promise;
  *
  * @template-covariant T
  *
- * @implements Promise<T>
+ * @implements Promise<T, \Throwable>
  */
 final class RejectedPromise implements Promise
 {
     /**
-     * @var \Exception
+     * @var \Throwable
      */
     private $exception;
 
-    public function __construct(\Exception $exception)
+    public function __construct(\Throwable $exception)
     {
         $this->exception = $exception;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function then(callable $onFulfilled = null, callable $onRejected = null)
     {
         if (null === $onRejected) {
@@ -34,28 +31,22 @@ final class RejectedPromise implements Promise
 
         try {
             return new FulfilledPromise($onRejected($this->exception));
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return new self($e);
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getState()
     {
         return Promise::REJECTED;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function wait($unwrap = true)
     {
         if ($unwrap) {
             throw $this->exception;
         }
 
-        return;
+        return null;
     }
 }

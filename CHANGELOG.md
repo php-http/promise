@@ -1,8 +1,14 @@
 # Change Log
 
-## 1.2.1
+## 1.2.2 - unreleased
 
-### Added - 2023-11-08
+### Fixed
+
+- Changed `Promise` to use a template for the exception class that is allowed.
+
+## 1.2.1 - 2023-11-08
+
+### Fixed
 
 - Fixed PHPDoc for `wait()` and `then()`'s `onRejected` callable
 

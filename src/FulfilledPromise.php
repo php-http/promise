@@ -9,7 +9,7 @@ namespace Http\Promise;
  *
  * @template-covariant T
  *
- * @implements Promise<T>
+ * @implements Promise<T, \Throwable>
  */
 final class FulfilledPromise implements Promise
 {
@@ -26,9 +26,6 @@ final class FulfilledPromise implements Promise
         $this->result = $result;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function then(callable $onFulfilled = null, callable $onRejected = null)
     {
         if (null === $onFulfilled) {
@@ -37,28 +34,22 @@ final class FulfilledPromise implements Promise
 
         try {
             return new self($onFulfilled($this->result));
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return new RejectedPromise($e);
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getState()
     {
         return Promise::FULFILLED;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function wait($unwrap = true)
     {
         if ($unwrap) {
             return $this->result;
         }
 
-        return;
+        return null;
     }
 }

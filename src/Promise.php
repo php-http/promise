@@ -14,6 +14,8 @@ namespace Http\Promise;
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  *
  * @template-covariant T
+ *
+ * @template E of \Throwable
  */
 interface Promise
 {
@@ -38,10 +40,10 @@ interface Promise
      * If you do not care about one of the cases, you can set the corresponding callable to null
      * The callback will be called when the value arrived and never more than once.
      *
-     * @param callable(T): V|null          $onFulfilled called when a response will be available
-     * @param callable(\Throwable): V|null $onRejected  called when an exception occurs
+     * @param callable(T): V|null $onFulfilled called when a response will be available
+     * @param callable(E): V|null $onRejected  called when an exception occurs
      *
-     * @return Promise<V> a new resolved promise with value of the executed callback (onFulfilled / onRejected)
+     * @return Promise<V, E> a new resolved promise with value of the executed callback (onFulfilled / onRejected)
      *
      * @template V
      */
@@ -67,7 +69,7 @@ interface Promise
      *
      * @return ($unwrap is true ? T : null) Resolved value, null if $unwrap is set to false
      *
-     * @throws \Exception the rejection reason if $unwrap is set to true and the request failed
+     * @throws E the rejection reason if $unwrap is set to true and the request failed
      */
     public function wait($unwrap = true);
 }
