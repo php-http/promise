@@ -69,6 +69,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Remove phpspec
+        run: composer remove --dev friends-of-phpspec/phpspec-code-coverage phpspec/phpspec
+
       - name: PHPStan
         uses: OskarStark/phpstan-ga@0.12.32
         env:
