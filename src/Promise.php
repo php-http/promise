@@ -45,7 +45,7 @@ interface Promise
      *
      * @template V
      */
-    public function then(callable $onFulfilled = null, callable $onRejected = null);
+    public function then(?callable $onFulfilled = null, ?callable $onRejected = null);
 
     /**
      * Returns the state of the promise, one of PENDING, FULFILLED or REJECTED.
