@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Method Http\\Promise\\FulfilledPromise\:\:then\(\) should return Http\\Promise\\Promise\<V\> but returns Http\\Promise\\RejectedPromise\<mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/FulfilledPromise.php
+
+		-
+			message: '#^Method Http\\Promise\\RejectedPromise\:\:then\(\) should return Http\\Promise\\Promise\<V\> but returns Http\\Promise\\RejectedPromise\<mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/RejectedPromise.php

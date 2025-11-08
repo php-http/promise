@@ -10,6 +10,14 @@
 
 - Reverted generic annotations on promise - as `then` returns another promise, there seems no way to properly document this.
 
+# 1.2.x
+
+## 1.2.2
+
+### Added - 2025-10-31
+
+- Compatibility with PHP 8.4
+
 ## 1.2.1 - 2023-11-08
 
 ### Added
