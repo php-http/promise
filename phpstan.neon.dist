@@ -1,6 +1,5 @@
 parameters:
     level: max
-    checkMissingIterableValueType: false
     treatPhpDocTypesAsCertain: false
     paths:
         - src
