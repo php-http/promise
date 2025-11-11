@@ -28,10 +28,6 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - name: Emulate PHP 8.3
-        run: composer config platform.php 8.3.999
-        if: matrix.php == '8.4'
-
       - name: Install PHP dependencies
         run: composer update --prefer-dist --no-interaction --no-progress
 
