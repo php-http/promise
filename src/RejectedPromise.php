@@ -6,6 +6,8 @@ namespace Http\Promise;
  * A rejected promise.
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
+ *
+ * @implements Promise<never>
  */
 final class RejectedPromise implements Promise
 {
@@ -19,6 +21,9 @@ final class RejectedPromise implements Promise
         $this->exception = $exception;
     }
 
+    /**
+     * @return ($onRejected is null ? self : Promise<mixed>)
+     */
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null)
     {
         if (null === $onRejected) {

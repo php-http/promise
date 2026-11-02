@@ -6,22 +6,29 @@ namespace Http\Promise;
  * A promise already fulfilled.
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
+ *
+ * @template-covariant T = mixed
+ *
+ * @implements Promise<T>
  */
 final class FulfilledPromise implements Promise
 {
     /**
-     * @var mixed
+     * @var T
      */
     private $result;
 
     /**
-     * @param mixed $result
+     * @param T $result
      */
     public function __construct($result)
     {
         $this->result = $result;
     }
 
+    /**
+     * @return ($onFulfilled is null ? self<T> : Promise<mixed>)
+     */
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null)
     {
         if (null === $onFulfilled) {
