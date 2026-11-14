@@ -12,6 +12,8 @@ namespace Http\Promise;
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
+ *
+ * @template-covariant T = mixed
  */
 interface Promise
 {
@@ -39,7 +41,7 @@ interface Promise
      * @param callable|null $onFulfilled called when a response will be available
      * @param callable|null $onRejected  called when an exception occurs
      *
-     * @return Promise a new resolved promise with value of the executed callback (onFulfilled / onRejected)
+     * @return Promise<mixed> a new resolved promise with value of the executed callback (onFulfilled / onRejected)
      */
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null);
 
@@ -61,7 +63,7 @@ interface Promise
      *
      * @param bool $unwrap Whether to return resolved value / throw reason or not
      *
-     * @return ($unwrap is true ? mixed : null) Resolved value, null if $unwrap is set to false
+     * @return ($unwrap is true ? T : null) Resolved value, null if $unwrap is set to false
      *
      * @throws \Throwable the rejection reason if $unwrap is set to true and the request failed
      */
