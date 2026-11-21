@@ -73,7 +73,7 @@ jobs:
         run: composer remove --dev friends-of-phpspec/phpspec-code-coverage phpspec/phpspec
 
       - name: PHPStan
-        uses: OskarStark/phpstan-ga@1.14.0
+        uses: docker://oskarstark/phpstan-ga
         env:
           REQUIRE_DEV: false
         with:
