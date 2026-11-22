@@ -56,11 +56,6 @@ jobs:
       - name: Execute tests
         run: composer test-ci
 
-      - name: Upload coverage
-        run: |
-          wget https://scrutinizer-ci.com/ocular.phar
-          php ocular.phar code-coverage:upload --format=php-clover build/coverage.xml
-
   phpstan:
     name: PHPStan
     runs-on: ubuntu-latest
